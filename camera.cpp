@@ -19,7 +19,8 @@ void Camera::Draw()
     XMMATRIX view = XMMatrixLookAtLH(eye, target, up);
     XMMATRIX proj = XMMatrixPerspectiveFovLH(XM_PIDIV4, 800.0f / 600.0f, 0.1f, 1000.0f);
 
-
+    Renderer::SetViewMatrix(view);
+    Renderer::SetProjectionMatrix(proj);
 }
 
 void Camera::Uninit() {}

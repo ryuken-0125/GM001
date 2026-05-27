@@ -34,12 +34,11 @@ void Field::Init()
 
 void Field::Update()
 {
-    m_Rotation.y += 0.01f; // 垂直軸回転（立体的）
+    m_Rotation.y += 0.01f; 
 }
 
 void Field::Draw()
 {
-    // ※3D描画用のView/Projection設定関数を呼んでください
     Renderer::GetDeviceContext()->IASetInputLayout(m_VertexLayout);
     Renderer::GetDeviceContext()->VSSetShader(m_VertexShader, NULL, 0);
     Renderer::GetDeviceContext()->PSSetShader(m_PixelShader, NULL, 0);
