@@ -413,4 +413,5 @@ void Renderer::CreatePixelShader( ID3D11PixelShader** PixelShader, const char* F
 	delete[] buffer;
 }
 
-
+ID3D11Device* Renderer::GetDevice() { return m_Device; }
+ID3D11DeviceContext* Renderer::GetDeviceContext() { return m_DeviceContext; }

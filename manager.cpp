@@ -4,10 +4,13 @@
 #include "polygon2D.h"
 #include "field.h"   
 #include "camera.h"  
+#include "player.h"
 
 Polygon2D g_Polygon2D;
 Field g_Field;     
 Camera g_Camera;   
+Player* g_Player;
+Camera* g_Camera;
 
 void Manager::Init()
 {
@@ -15,6 +18,11 @@ void Manager::Init()
 	g_Camera.Init();   
 	g_Field.Init();    
 	g_Polygon2D.Init();
+	g_Player = new Player();
+	g_Player->Init();
+	g_Camera = new Camera();
+	g_Camera->Init();
+
 }
 
 void Manager::Uninit()
@@ -30,6 +38,10 @@ void Manager::Update()
 	g_Camera.Update(); 
 	g_Field.Update();  
 	g_Polygon2D.Update();
+	g_Player->Update(); 
+	g_Camera->SetTarget(g_Player->GetPosition());
+	g_Camera->Update(); 
+
 }
 
 void Manager::Draw()
